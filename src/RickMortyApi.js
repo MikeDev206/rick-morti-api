@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import "./Components/GetData";
 import MainStyles from "./styles/MainStyles";
+import "./Components/ApiTemplate";
 
 const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
@@ -12,9 +13,7 @@ export class RickMortyApi extends LitElement {
   }
 
   static get styles() {
-    return [
-      MainStyles
-    ]
+    return [MainStyles];
   }
 
   constructor() {
@@ -50,8 +49,8 @@ export class RickMortyApi extends LitElement {
         url="https://rickandmortyapi.com/api/character"
         method="GET"
       ></get-data>
-
-      ${this.dataTemplate};
+      <api-template></api-template>
+      <div class="container">${this.dataTemplate};</div>
     `;
   }
 
