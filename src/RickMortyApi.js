@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import "./Components/GetData";
+import MainStyles from "./styles/MainStyles";
 
 const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
@@ -11,31 +12,9 @@ export class RickMortyApi extends LitElement {
   }
 
   static get styles() {
-    return css`
-      :host{
-        display: block
-      }
-
-      .container {
-        text-align: justify
-      }
-
-      get-data {
-        display: none;
-      }
-
-      .card {
-        background: #fff;
-        border-radius: 10px;
-        display: inline-block;
-        height: 300px;
-        width: 200px;
-        margin: 2em;
-        position: relative;
-        text-align: center;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .24);
-      }
-    `;
+    return [
+      MainStyles
+    ]
   }
 
   constructor() {
@@ -86,8 +65,7 @@ export class RickMortyApi extends LitElement {
             <div class="card-body">
               <h2>${character.name}</h2>
               <img src="${character.img}" />
-              <p>${character.species}</p>
-              <p>${character.status}</p>
+              <p>${character.species} | ${character.status}</p>
             </div>
           </div>
         `
